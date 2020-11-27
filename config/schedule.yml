@@ -1,0 +1,3 @@
+update_bit_coin_price:
+  cron: "* * * * *"
+  class: "UpdateBitCoinPrice"
