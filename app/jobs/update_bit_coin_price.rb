@@ -26,9 +26,9 @@ class UpdateBitCoinPrice
         use_ssl: uri.scheme == 'https',
       }
 
-      # response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-      #   http.request(request)
-      # end
+      response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+        http.request(request)
+      end
 
       details = JSON(response.body)['data']['BTC']['quote']['USD']
   

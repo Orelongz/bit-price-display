@@ -1,10 +1,9 @@
 # README
 
-* create db with name orelongz and "" as password
+* create db
 * bundle install
 * yarn install
 * rake db:create
 * rake db:migrate
 * foreman start
 * rake db:seed
-* 

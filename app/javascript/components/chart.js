@@ -77,7 +77,7 @@ const LineChart = ({ timeUnit, bitCoinData, setBitCoinData }) => {
         yAxes: [{
           scaleLabel: {
             display: true,
-            labelString: "Closing price ($)",
+            labelString: "Bitcoin price ($)",
           }
         }]
       }
