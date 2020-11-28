@@ -5,6 +5,8 @@ class CreateBitCoins < ActiveRecord::Migration[6.0]
       t.datetime  :timestamp, null: false, default: Time.now
 
       t.timestamps
+
+      t.index :timestamp
     end
   end
 end

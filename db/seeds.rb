@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# seed a year worth of data
-# 60 minutes, 24 hours, 356 days
-# MINUTES_IN_A_YEAR = 50
-BATCH_LENGTH = 1_000
+BATCH_LENGTH = 2_000
 MINIMUM_PRICE_IN_LAST_YEAR = 8_500
 MAXIMUM_PRICE_IN_LAST_YEAR = 20_000
-MINUTES_IN_A_YEAR = 60 * 24 * 356
+
+# seed a year worth of data
+# 60 minutes, 24 hours, 356 days
+MINUTES_IN_A_YEAR = (60 * 24 * 356) + 1000
 
 timestamp = Time.now
 (1..MINUTES_IN_A_YEAR).each_slice(BATCH_LENGTH) do |arr|
