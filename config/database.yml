@@ -81,7 +81,4 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: bit_price_display_production
-  username: bit_price_display
-  password: <%= ENV['BIT_PRICE_DISPLAY_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
