@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_11_26_145943) do
 
   create_table "bit_coins", force: :cascade do |t|
     t.decimal "price", default: "0.0", null: false
-    t.datetime "timestamp", default: "2020-11-28 14:02:25", null: false
+    t.datetime "timestamp", default: -> { "CURRENT_TIMESTAMP" }
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["timestamp"], name: "index_bit_coins_on_timestamp"

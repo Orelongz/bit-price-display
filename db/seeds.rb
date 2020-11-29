@@ -8,25 +8,23 @@
 
 
 BATCH_LENGTH = 2_000
-MINIMUM_PRICE_IN_LAST_YEAR = 8_500
-MAXIMUM_PRICE_IN_LAST_YEAR = 20_000
+bit_coin = BitCoinService.bit_coin_detail
 
 # seed a year worth of data
 # 60 minutes, 24 hours, 356 days
 MINUTES_IN_A_YEAR = (60 * 24 * 356) + 1000
 
-timestamp = Time.now
 (1..MINUTES_IN_A_YEAR).each_slice(BATCH_LENGTH) do |arr|
   data = []
 
   arr.map do
-    data << BitCoin.new(
-      timestamp: timestamp,
-      price: rand(MINIMUM_PRICE_IN_LAST_YEAR..MAXIMUM_PRICE_IN_LAST_YEAR)
-    )
-    timestamp -= 1.minutes
+    data << BitCoin.new(bit_coin)
+    bit_coin[:timestamp] -= 1.minutes
+    bit_coin[:price] = BitCoinService.estimated_price
   end
 
   puts "Importing batch of #{BATCH_LENGTH}"
   BitCoin.import(data)
 end
+
+puts "Database seed completed"
