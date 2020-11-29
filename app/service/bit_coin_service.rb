@@ -1,5 +1,5 @@
 class BitCoinService
-  VARIATION = 3_500.00
+  VARIATION = 100.00
 
   def self.bit_coin_detail
     begin
