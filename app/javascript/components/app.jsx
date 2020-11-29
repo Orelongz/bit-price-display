@@ -28,6 +28,12 @@ const App = ({ bitCoins }) => {
         <button onClick={() => setTimeUnit('week')}>1 month</button>
         <button onClick={() => setTimeUnit('month')}>1 year</button>
       </div>
+
+      <p>
+        Note: The first 1 hour display might be empty if viewed on heroku because the free dyno on
+        heroku idles out after a few minutes of inactivity and therefore the worker stops.
+        Kindly Stay on the page for a few minutes and see the graph start populating
+      </p>
     </div>
   )
 };
