@@ -3,11 +3,7 @@ class UpdateBitCoinPrice
   sidekiq_options queue: :default, retry: false
 
   def perform
-    bit_coin = BitCoinService.bit_coin_detail
-    puts "======="
-    bit_coin
-    puts "======="
-    BitCoin.create!(bit_coin)
+    BitCoin.create!(BitCoinService.bit_coin_detail)
 
     ActionCable.server.broadcast(
       'bit_coin_channel', {
