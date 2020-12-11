@@ -5,7 +5,7 @@ class BitCoinService
     begin
       uri = URI.parse('https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=BTC')
       request = Net::HTTP::Get.new(uri)
-      request['X-Cmc_pro_api_key'] = "020a14a0-f1e7-4bc8-9b78-b4e69c8c0d52"
+      request['X-Cmc_pro_api_key'] = Rails.application.credentials.dig(:coin_market, :api_key)
       request['Accept'] = 'application/json'
   
       req_options = {
@@ -23,9 +23,6 @@ class BitCoinService
         timestamp: details['last_updated']
       }
     rescue Exception => e
-      puts "=========<<<<>>>>>======="
-      puts e.message
-      puts "=========<<<<>>>>>======="
       {
         price: estimated_price,
         timestamp: Time.now
