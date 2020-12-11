@@ -16,7 +16,7 @@ class BitCoinService
         http.request(request)
       end
       puts "<<<>>>>"
-      puts response
+      puts response.body
       puts "<<<>>>>"
 
       details = JSON(response.body)['data']['BTC']['quote']['USD']
