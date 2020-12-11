@@ -22,7 +22,7 @@ class BitCoinService
         price: details['price'],
         timestamp: details['last_updated']
       }
-    rescue Exception => e
+    rescue => exception
       {
         price: estimated_price,
         timestamp: Time.now
