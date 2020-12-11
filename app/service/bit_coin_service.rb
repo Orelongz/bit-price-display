@@ -22,7 +22,10 @@ class BitCoinService
         price: details['price'],
         timestamp: details['last_updated']
       }
-    rescue => exception
+    rescue Exception => e
+      puts "=========<<<<>>>>>======="
+      puts e.message
+      puts "=========<<<<>>>>>======="
       {
         price: estimated_price,
         timestamp: Time.now
