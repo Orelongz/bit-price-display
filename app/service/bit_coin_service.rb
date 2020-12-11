@@ -15,6 +15,9 @@ class BitCoinService
       response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
         http.request(request)
       end
+      puts "<<<>>>>"
+      puts response
+      puts "<<<>>>>"
 
       details = JSON(response.body)['data']['BTC']['quote']['USD']
   
@@ -23,6 +26,9 @@ class BitCoinService
         timestamp: details['last_updated']
       }
     rescue => exception
+      puts "=====<<<>>>>===="
+      puts exception
+      puts "=====<<<>>>>===="
       {
         price: estimated_price,
         timestamp: Time.now
